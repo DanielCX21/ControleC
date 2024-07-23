@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
         strcpy(teste, argv[1]);
     }
 
+
     if(teste_acesso(argc, senha, teste) == 1)
     {
         while(1)
@@ -127,35 +128,73 @@ int main(int argc, char *argv[])
     }
     else
     {
-        while(1)
+        if(argc == 2)
         {
-            std :: cout <<"1-Listar todos os produtos." << "\n";
-            std :: cout <<"2-Consultar individualmente. "<< "\n";
-            std :: cout <<"3-Sair." << "\n";
-        
-            recebe_inteiro_main(opcao);
-
-            switch(opcao)
+            //senha errada
+            std :: cout << "\n\nSENHA INCORRETA!!!\n\n";
+            while(1)
             {
-                case 1: { 
-                    ordenar(produtos, tamanho);   
-                    listar(produtos, tamanho);
-                        }break;
-                case 2: {
-                    ordenar(produtos, tamanho);
-                    consultar(produtos, tamanho);
-                        }break;   
-                case 3: {
-                    std :: cout << "\nAte mais!\n\n";
-                    free(produtos);
-                    return 0;
-                        }break;              
-                default:{
-                    std :: cout << "Digite opcao valida.\n\n";
-                        }
-                    break;
+                std :: cout <<"1-Listar todos os produtos." << "\n";
+                std :: cout <<"2-Consultar individualmente. "<< "\n";
+                std :: cout <<"3-Sair." << "\n";
+            
+                recebe_inteiro_main(opcao);
+
+                switch(opcao)
+                {
+                    case 1: { 
+                        ordenar(produtos, tamanho);   
+                        listar(produtos, tamanho);
+                            }break;
+                    case 2: {
+                        ordenar(produtos, tamanho);
+                        consultar(produtos, tamanho);
+                            }break;   
+                    case 3: {
+                        std :: cout << "\nAte mais!\n\n";
+                        free(produtos);
+                        return 0;
+                            }break;              
+                    default:{
+                        std :: cout << "Digite opcao valida.\n\n";
+                            }
+                        break;
+                }
             }
         }
+        else
+        {
+        //nem tentou senha
+        while(1)
+            {
+                std :: cout <<"1-Listar todos os produtos." << "\n";
+                std :: cout <<"2-Consultar individualmente. "<< "\n";
+                std :: cout <<"3-Sair." << "\n";
+            
+                recebe_inteiro_main(opcao);
+
+                switch(opcao)
+                {
+                    case 1: { 
+                        ordenar(produtos, tamanho);   
+                        listar(produtos, tamanho);
+                            }break;
+                    case 2: {
+                        ordenar(produtos, tamanho);
+                        consultar(produtos, tamanho);
+                            }break;   
+                    case 3: {
+                        std :: cout << "\nAte mais!\n\n";
+                        free(produtos);
+                        return 0;
+                            }break;              
+                    default:{
+                        std :: cout << "Digite opcao valida.\n\n";
+                            }
+                        break;
+                }
+            }
+        }  
     }
 
     return 0;
